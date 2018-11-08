@@ -48,7 +48,7 @@ public class FooCtrl {
 
     private Flux<ServerSentEvent<SSE>> getFooStream() {
         return this.fooService.findAll()
-                .log()
+//                .log()
                 .map(foo -> {
                     foo.setBirthday(new Date());
                     return foo;
@@ -62,7 +62,7 @@ public class FooCtrl {
 
     private Flux<ServerSentEvent<SSE>> getHeartBeatStream() {
         return Flux.interval(Duration.ofSeconds(1))
-                .log()
+//                .log()
                 .map(i ->
                         ServerSentEvent.<SSE>builder()
                                 .event("ping")

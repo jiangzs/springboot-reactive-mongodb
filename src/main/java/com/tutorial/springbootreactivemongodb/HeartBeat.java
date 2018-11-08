@@ -13,8 +13,8 @@ import java.util.Date;
  */
 public final class HeartBeat {
 
-    public static Flux<ServerSentEvent<SSE>> getHeartBeatStream(final Integer interval) {
-        return Flux.merge(getPingPong(), Flux.interval(Duration.ofSeconds(interval))
+    public static Flux<ServerSentEvent<SSE>> getHeartBeatStream(final Integer seconds) {
+        return Flux.merge(getPingPong(), Flux.interval(Duration.ofSeconds(seconds))
                 .log()
                 .map(i ->
                         ServerSentEvent.<SSE>builder()

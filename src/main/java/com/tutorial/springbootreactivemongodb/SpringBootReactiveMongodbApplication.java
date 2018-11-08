@@ -1,6 +1,7 @@
 package com.tutorial.springbootreactivemongodb;
 
 import com.tutorial.springbootreactivemongodb.foo.SSE;
+import io.prometheus.client.spring.web.EnablePrometheusTiming;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.annotation.EnableRabbit;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
@@ -16,6 +17,7 @@ import reactor.core.publisher.TopicProcessor;
 import reactor.util.concurrent.Queues;
 
 @Slf4j
+@EnablePrometheusTiming
 @EnableScheduling
 @EnableRabbit
 @RestController
@@ -51,4 +53,6 @@ public class SpringBootReactiveMongodbApplication {
                 .build());
 
     }
+
+
 }
